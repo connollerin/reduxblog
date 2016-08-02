@@ -8,7 +8,10 @@ import Link from 'react-router';
 class Index extends Component {
   constructor(props) {
     super(props);
-    this.state = {};
+    this.state = {
+      // all: props.all,
+      // post: props.post,
+    };
   }
 
 
@@ -38,7 +41,7 @@ class Index extends Component {
 // connects particular parts of redux state to this components props
 const mapStateToProps = (state) => (
   {
-    posts: state.posts.all,
+    all: state.posts.all,
   }
 );
 

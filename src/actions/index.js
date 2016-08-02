@@ -1,4 +1,4 @@
-import axios from 'redux-thunk';
+import axios from 'axios';
 
 export const ActionTypes = {
   FETCH_POSTS: 'FETCH_POSTS',
@@ -25,5 +25,5 @@ export function fetchPosts() {
 }
 
 // for post and put
-const fields = { title: '', contents: '', tags: '' };
-axios.post(`${ROOT_URL}/posts${API_KEY}`, fields);
+// const fields = { title: '', contents: '', tags: '' };
+// axios.post(`${ROOT_URL}/posts${API_KEY}`, fields);

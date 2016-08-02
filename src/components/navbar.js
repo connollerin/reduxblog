@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import Link from 'react-router';
+import { Link } from 'react-router';
 
 class NavBar extends Component {
   constructor(props) {
@@ -10,7 +10,7 @@ class NavBar extends Component {
     return (
       <div>
         <Link to="/">Erins Site Name</Link>
-        <Link to="posts/new">new post</Link>
+        <Link to="/posts/new">new post</Link>
       </div>
     );
   }
