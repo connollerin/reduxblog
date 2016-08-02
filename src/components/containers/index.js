@@ -1,20 +1,39 @@
-import React from 'react';
+import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { fetchPosts } from '../../actions';
+import Link from 'react-router';
 
 // this can be dumb or smart component - connect works with either
 
+class Index extends Component {
+  constructor(props) {
+    super(props);
+    this.state = {};
+  }
 
-const Index = (props) => {
-  const posts = this.props.all.map((post) => {
-    return <Post title={post.title} id={post.id} tags={post.tags} key={post.id} />;
-  });
-  return (
-    <div>
-      {posts}
-    </div>
-  );
-};
+
+  componentWillMount() {
+    this.props.fetchPosts();
+  }
+
+  render() {
+    const posts = this.props.all.map((post) => {
+      const postAddress1 = 'posts/';
+      const postAddress = postAddress1.concat(post.id);
+      return (
+        <div id="postTitle">
+          <Link to={postAddress}>{post.title}</Link>
+          <p>{post.tags}</p>
+        </div>
+      );
+    });
+    return (
+      <div>
+        {posts}
+      </div>
+    );
+  }
+}
 
 // connects particular parts of redux state to this components props
 const mapStateToProps = (state) => (
