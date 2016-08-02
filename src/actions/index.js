@@ -11,12 +11,18 @@ export const ActionTypes = {
 const ROOT_URL = 'https://cs52-blog.herokuapp.com/api';
 const API_KEY = '?key=e_connolly';
 
-// for get
-axios.get(`${ROOT_URL}/posts${API_KEY}`).then(response => {
-  // do something with response.data  (some json)
-}).catch(error => {
-  // hit an error do something else!
-});
+export function fetchPosts() {
+  return (dispatch) => {
+      // for get
+    axios.get(`${ROOT_URL}/posts${API_KEY}`).then(response => {
+      // do something with response.data  (some json)
+      dispatch({ type: 'FETCH_POSTS', payload: { all: response.all, post: response.post } });
+    }).catch(error => {
+      // hit an error do something else!
+      console.log('error with fetching');
+    });
+  };
+}
 
 // for post and put
 const fields = { title: '', contents: '', tags: '' };

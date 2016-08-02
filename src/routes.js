@@ -8,7 +8,7 @@ import Show from './components/show';
 
 export default(
   <Route path="/" component={App}>
-    <IndexRoute component={Index} />
+    <IndexRoute component={Index} /> // default view within app, base app
     <Route path="posts/new" component={New} />
     <Route path="posts/:id" component={Show} />
   </Route>
