@@ -1,4 +1,5 @@
 import axios from 'axios';
+import { browserHistory } from 'react-router';
 
 export const ActionTypes = {
   FETCH_POSTS: 'FETCH_POSTS',
@@ -16,7 +17,7 @@ export function fetchPosts() {
       // for get
     axios.get(`${ROOT_URL}/posts${API_KEY}`).then(response => {
       // do something with response.data  (some json)
-      dispatch({ type: 'FETCH_POSTS', payload: { all: response.all, post: response.post } });
+      dispatch({ type: 'FETCH_POSTS', payload: response.data });
     }).catch(error => {
       // hit an error do something else!
       console.log('error with fetching');
@@ -24,6 +25,44 @@ export function fetchPosts() {
   };
 }
 
-// for post and put
-// const fields = { title: '', contents: '', tags: '' };
-// axios.post(`${ROOT_URL}/posts${API_KEY}`, fields);
+export function fetchPost(id) {
+  return (dispatch) => {
+    axios.get(`${ROOT_URL}/posts/${id}${API_KEY}`).then(response => {
+      console.log(response.data);
+      dispatch({ type: 'FETCH_POST', payload: response.data });
+    }).catch(error => {
+      console.log('Error getting post');
+    });
+  };
+}
+
+export function createPost(post) {
+  return (dispatch) => {
+    const fields = { title: post.title, content: post.content, tags: post.tags };
+    axios.post(`${ROOT_URL}/posts/${API_KEY}`, fields).then(response => {
+      browserHistory.push('/');
+    }).catch(error => {
+      console.log('Error creating posts');
+    });
+  };
+}
+
+export function updatePost(post) {
+  return (dispatch) => {
+    const fields = { title: post.title, content: post.content, tags: post.tags };
+    axios.put(`${ROOT_URL}/posts/${post.id}${API_KEY}`, fields).then(response => {
+    }).catch(error => {
+      console.log('Error updating post');
+    });
+  };
+}
+
+export function deletePost(id) {
+  return (dispatch) => {
+    axios.delete(`${ROOT_URL}/posts/${id}${API_KEY}`).then(response => {
+      browserHistory.push('/');
+    }).catch(error => {
+      console.log('Error deleting post');
+    });
+  };
+}

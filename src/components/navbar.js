@@ -10,6 +10,7 @@ class NavBar extends Component {
     return (
       <div>
         <Link to="/">Erins Site Name</Link>
+        <br></br>
         <Link to="/posts/new">new post</Link>
       </div>
     );
