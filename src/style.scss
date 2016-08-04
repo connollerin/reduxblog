@@ -1,6 +1,56 @@
 body {
-  font-family: "Roboto", sans-serif;
+  font-family: 'Indie Flower', cursive;
+  font-size: 20px;
   color: rgb(10%, 10%, 10%);
-  background: darken(white, 10%);
+  background: url('http://www.intrawallpaper.com/static/images/6809725-simple-vintage-backgrounds.jpg');
+  background-size: cover;
+  background-repeat: no-repeat;
   margin: 50px;
+}
+
+#navbar {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  padding: 20px;
+}
+
+.link {
+  color: brown;
+}
+
+.link:hover {
+  color: darken(brown, 20%);
+}
+
+#postBar, #newPost, #fields {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  flex-wrap: wrap;
+  padding: 20px;
+  background-color: rgba(10%, 0%, 0%, .1);
+}
+
+#create, #cancel, .edit, .delete {
+  height: 50px;
+  background-color: rgb(153, 102, 51);
+  border: none;
+  border-radius: 5px;
+  color: white;
+  padding: 15px 32px;
+  text-align: center;
+  text-decoration: none;
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  font-size: 16px;
+  margin-left: 10px;
+  margin-top: 2px;
+  transition-duration: 0.4s;
+  font-family: 'Indie Flower', cursive;
+}
+
+#create:hover, #cancel:hover, .edit:hover, .delete:hover {
+  background-color: rgb(115, 77, 38);
 }

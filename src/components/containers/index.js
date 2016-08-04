@@ -8,10 +8,7 @@ import PostBar from '../postBar';
 class Index extends Component {
   constructor(props) {
     super(props);
-    this.state = {
-      // all: props.all,
-      // post: props.post,
-    };
+    this.state = {};
   }
 
   componentWillMount() {
@@ -35,11 +32,9 @@ class Index extends Component {
 // connects particular parts of redux state to this components props
 const mapStateToProps = (state) => (
   {
-    all: state.posts.all, // map some key, posts to state.posts.all, props.posts now exist
+    all: state.posts.all,
   }
 );
 
 // react-redux glue -- outputs Container that know state in props
 export default connect(mapStateToProps, { fetchPosts })(Index); // not sure if this is correct
-// connected version of the function is also really important
-// second argument is match dispatch to props

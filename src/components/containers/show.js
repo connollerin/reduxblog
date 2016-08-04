@@ -20,9 +20,9 @@ class Show extends Component {
     };
 
     // bindings...
-    this.changeTitle = this.changeTitle.bind(this);
-    this.changeTags = this.changeTags.bind(this);
-    this.changeContent = this.changeContent.bind(this);
+    this.setTitle = this.setTitle.bind(this);
+    this.setTags = this.setTags.bind(this);
+    this.setContent = this.setContent.bind(this);
     this.updatePost = this.updatePost.bind(this);
     this.editPost = this.editPost.bind(this);
     this.deletePost = this.deletePost.bind(this);
@@ -40,19 +40,19 @@ class Show extends Component {
     });
   }
 
-  changeTitle(event) {
+  setTitle(event) {
     this.setState({
       title: event.target.value,
     });
   }
 
-  changeTags(event) {
+  setTags(event) {
     this.setState({
       tags: event.target.value,
     });
   }
 
-  changeContent(event) {
+  setContent(event) {
     this.setState({
       content: event.target.value,
     });
@@ -67,7 +67,6 @@ class Show extends Component {
       this.setState({
         editButton: 'edit',
       });
-      // this.updatePost();
     }
     this.updatePost();
   }
@@ -87,43 +86,50 @@ class Show extends Component {
   render() {
     if (this.state.editButton === 'done') {
       return (
-        <div id="fields">
-          <div>
-            Title: <input value={this.state.title} onChange={this.changeTitle} />
+        <div>
+          <div id="fields">
+            <div>
+              Title: <input value={this.state.title} onChange={this.setTitle} />
+            </div>
+            <div>
+              Tags: <input value={this.state.tags} onChange={this.setTags} />
+            </div>
+            <div>
+              Content: <textarea value={this.state.content} onChange={this.setContent} />
+            </div>
           </div>
-          <div>
-            Tags: <input value={this.state.tags} onChange={this.changeTags} />
+          <div id="buttons">
+            <button className="edit" onClick={this.editPost}>
+              {this.state.editButton}
+            </button>
+            <button className="delete" onClick={this.deletePost}>
+              delete
+            </button>
           </div>
-          <div>
-            Content: <textarea value={this.state.content} onChange={this.changeContent} /> // change to set
-          </div>
-          <button className="edit" onClick={this.editPost}>
-            {this.state.editButton}
-          </button>
-          <button className="delete" onClick={this.deletePost}>
-            delete
-          </button>
         </div>
       );
     } else {
       return (
-        <div id="fields">
-          <div>
-            {this.state.title}
+        <div>
+          <div id="fields">
+            <div>
+              {this.state.title}
+            </div>
+            <div>
+              {this.state.tags}
+            </div>
+            <div dangerouslySetInnerHTML={this.markItUp()}>
+            </div>
           </div>
-          <div>
-            {this.state.tags}
+          <div id="buttons">
+            <button className="edit" onClick={this.editPost}>
+              {this.state.editButton}
+            </button>
+            <button className="delete" onClick={this.deletePost}>
+              delete
+            </button>
           </div>
-          <div dangerouslySetInnerHTML={this.markItUp()}>
-          </div>
-          <button className="edit" onClick={this.editPost}>
-            {this.state.editButton}
-          </button>
-          <button className="delete" onClick={this.deletePost}>
-            delete
-          </button>
         </div>
-
       );
     }
   }

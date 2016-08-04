@@ -64,8 +64,8 @@ class New extends Component {
           </div>
         </div>
         <div id="buttons">
-          <button onClick={this.submit}>Create</button>
-          <button onClick={this.cancel}>Cancel</button>
+          <button id="create" onClick={this.submit}>Create</button>
+          <button id="cancel" onClick={this.cancel}>Cancel</button>
         </div>
       </div>
     );

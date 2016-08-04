@@ -8,10 +8,9 @@ class NavBar extends Component {
   }
   render() {
     return (
-      <div>
-        <Link to="/">Erins Site Name</Link>
-        <br></br>
-        <Link to="/posts/new">new post</Link>
+      <div id="navbar">
+        <Link className="link" to="/">The most awesaome blog in the world</Link>
+        <Link className="link" to="/posts/new">new post +</Link>
       </div>
     );
   }
