@@ -16,7 +16,7 @@ export const ActionTypes = {
 // const ROOT_URL = 'https://hw5pt1.herokuapp.com/api';
 const ROOT_URL = 'http://localhost:9090/api';
 // const ROOT_URL = 'https://authhw5.herokuapp.com/api';
-const API_KEY = '?key=e_connolly';
+const API_KEY = '';
 
 export function fetchPosts() {
   return (dispatch) => {

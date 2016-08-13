@@ -7,7 +7,7 @@ import routes from './routes';
 import { Provider } from 'react-redux';
 import { createStore, applyMiddleware, compose } from 'redux';
 import reducers from './reducers';
-import ActionTypes from './actions';
+import { ActionTypes } from './actions';
 
 
 // this creates the store with the reducers, and does some other stuff to initialize devtools
