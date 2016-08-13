@@ -14,7 +14,7 @@ export default(
     <IndexRoute component={Index} /> // default view within app, base app
     <Route path="posts/new" component={RequireAuth(New)} />
     <Route path="posts/:id" component={Show} />
-    <Route path="signIn" component={SignIn} />
-    <Route path="signUp" component={SignUp} />
+    <Route path="signin" component={SignIn} />
+    <Route path="signup" component={SignUp} />
   </Route>
 );

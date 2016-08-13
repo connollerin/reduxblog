@@ -31,7 +31,7 @@ class SignUp extends Component {
   }
 
   submit() {
-    this.props.signinUser({ email: this.state.email, password: this.state.password });
+    this.props.signupUser({ email: this.state.email, password: this.state.password });
   }
 
   cancel() {
@@ -42,7 +42,7 @@ class SignUp extends Component {
     return (
       <div id="signUp">
         <h1>
-          Sign in:
+          Sign up:
         </h1>
         <div id="fields">
           <div>

@@ -14,7 +14,8 @@ export const ActionTypes = {
 
 // const ROOT_URL = 'https://cs52-blog.herokuapp.com/api';
 // const ROOT_URL = 'https://hw5pt1.herokuapp.com/api';
-const ROOT_URL = 'http://localhost:9090/';
+const ROOT_URL = 'http://localhost:9090/api';
+// const ROOT_URL = 'https://authhw5.herokuapp.com/api';
 const API_KEY = '?key=e_connolly';
 
 export function fetchPosts() {
@@ -90,7 +91,7 @@ export function signinUser({ email, password }) {
   //  localStorage.setItem('token', response.data.token);
   // on error should dispatch(authError(`Sign In Failed: ${error.response.data}`));
   return (dispatch) => {
-    axios.post(`${ROOT_URL}/signin`, { email, password }). // is that address right?
+    axios.post(`${ROOT_URL}/signin/`, { email, password }). // is that address right?
     then(response => {
       dispatch({ type: ActionTypes.AUTH_USER }); // do we need to add payload.email?
       localStorage.setItem('token', response.data.token);
@@ -112,7 +113,7 @@ export function signupUser({ email, password }) {
   //  localStorage.setItem('token', response.data.token);
   // on error should dispatch(authError(`Sign Up Failed: ${error.response.data}`));
   return (dispatch) => {
-    axios.post(`${ROOT_URL}/signup`, { email, password }).
+    axios.post(`${ROOT_URL}/signup/`, { email, password }).
     then(response => {
       dispatch({ type: ActionTypes.AUTH_USER }); // do we need to add payload.email?
       localStorage.setItem('token', response.data.token);

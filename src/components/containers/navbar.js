@@ -11,33 +11,32 @@ class NavBar extends Component {
     };
 
     this.signOut = this.signOut.bind(this);
-    this.checkSignIn = this.checkSignIn.bind(this);
   }
 
   signOut() {
     this.props.signoutUser();
   }
 
-  checkSignIn() { // make sure this is recognizing when signed in, don't know how quickly it's updated
-    if (this.state.authenticated) {
-      return <button id="signout" onClick={this.signOut}>sign out</button>;
-    } else {
-      return (<div>
-        <Link className="link" to="/signin">sign in</Link>
-        <Link className="link" to="/signup">sign up</Link>
-      </div>);
-    }
-  }
-
 
   render() {
-    return (
-      <div id="navbar">
-        <Link className="link" to="/">The most awesaome blog in the world</Link>
-        <Link className="link" to="/posts/new">new post +</Link>
-        {this.checkSignIn}
-      </div>
-    );
+    if (this.state.authenticated) {
+      return (
+        <div id="navbar">
+          <Link className="link" to="/">The most awesaome blog in the world</Link>
+          <Link className="link" to="/posts/new">new post +</Link>
+          <button id="signout" onClick={this.signOut}>sign out</button>
+        </div>
+      );
+    } else {
+      return (
+        <div id="navbar">
+          <Link className="link" to="/">The most awesaome blog in the world</Link>
+          <Link className="link" to="/posts/new">new post +</Link>
+          <Link className="link" to="/signin">sign in</Link>
+          <Link className="link" to="/signup">sign up</Link>
+        </div>
+      );
+    }
   }
 }
 
