@@ -18,7 +18,7 @@ class Index extends Component {
   render() {
     let posts = this.props.all.map((post) => {
       return (
-        <PostBar title={post.title} id={post.id} tags={post.tags} key={post.id} /> // warning!!
+        <PostBar title={post.title} id={post.id} tags={post.tags} key={post.id} authorname={post.authorname} /> // warning!!
        );
     });
     return (

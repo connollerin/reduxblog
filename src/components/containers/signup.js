@@ -10,12 +10,20 @@ class SignUp extends Component {
     this.state = {
       email: '',
       password: '',
+      authorname: '',
     };
 
+    this.setAuthorname = this.setAuthorname.bind(this);
     this.setUsername = this.setUsername.bind(this);
     this.setPassword = this.setPassword.bind(this);
     this.submit = this.submit.bind(this);
     this.cancel = this.cancel.bind(this);
+  }
+
+  setAuthorname(event) {
+    this.setState({
+      authorname: event.target.value,
+    });
   }
 
   setUsername(event) {
@@ -31,7 +39,7 @@ class SignUp extends Component {
   }
 
   submit() {
-    this.props.signupUser({ email: this.state.email, password: this.state.password });
+    this.props.signupUser({ email: this.state.email, password: this.state.password, authorname: this.state.authorname });
   }
 
   cancel() {
@@ -45,6 +53,9 @@ class SignUp extends Component {
           Sign up:
         </h1>
         <div id="fields">
+          <div>
+            Name: <input value={this.state.authorname} onChange={this.setAuthorname} />
+          </div>
           <div>
             Email: <input value={this.state.email} onChange={this.setUsername} />
             <p>Note: this will be used as your username when signing in.</p>
@@ -60,15 +71,7 @@ class SignUp extends Component {
       </div>
     );
   }
-  }
-
-
-// // connects particular parts of redux state to this components props
-// const mapStateToProps = (state) => (
-//   {
-//     post: state.authenticated, // not sure what is supposed to happen here
-//   }
-// );
+}
 
 // react-redux glue -- outputs Container that know state in props
 export default connect(null, { signupUser })(SignUp);

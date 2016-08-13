@@ -11,6 +11,7 @@ class New extends Component {
       title: '',
       tags: '',
       content: '',
+      authorname: props.post.authorname,
     };
 
     this.setTitle = this.setTitle.bind(this);

@@ -17,6 +17,7 @@ class Show extends Component {
       tags: '',
       content: '',
       editButton: 'edit',
+      authorname: props.authorname,
     };
 
     // bindings...
@@ -37,6 +38,7 @@ class Show extends Component {
       title: nextProps.post.title,
       tags: nextProps.post.tags,
       content: nextProps.post.content,
+      authorname: nextProps.post.authorname,
     });
   }
 
@@ -72,7 +74,7 @@ class Show extends Component {
   }
 
   updatePost() {
-    this.props.updatePost({ title: this.state.title, tags: this.state.tags, content: this.state.content, id: this.props.params.id });
+    this.props.updatePost({ title: this.state.title, tags: this.state.tags, content: this.state.content, id: this.props.params.id, authorname: this.props.params.authorname });
   }
 
   deletePost() {
@@ -114,6 +116,9 @@ class Show extends Component {
           <div id="fields">
             <div>
               {this.state.title}
+            </div>
+            <div>
+              {this.state.authorname}
             </div>
             <div>
               {this.state.tags}
