@@ -19,7 +19,8 @@ class NavBar extends Component {
 
 
   render() {
-    if (this.state.authenticated) {
+    console.log(this.props.authenticated);
+    if (this.props.authenticated) {
       return (
         <div id="navbar">
           <Link className="link" to="/">The most awesaome blog in the world</Link>

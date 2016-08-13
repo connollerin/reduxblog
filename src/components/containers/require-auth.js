@@ -6,10 +6,6 @@ import { browserHistory } from 'react-router';
 
 export default function (ComposedComponent) {
   class RequireAuth extends Component {
-    constructor(props) {
-      super(props);
-      this.state = {};
-    }
 
     componentWillMount() {
       if (!this.props.authenticated) {
@@ -24,7 +20,11 @@ export default function (ComposedComponent) {
     }
 
     render() {
-      return <ComposedComponent {...this.props} />;
+      return (
+        <div>
+          <ComposedComponent {...this.props} />;
+        </div>
+      );
     }
   }
 
