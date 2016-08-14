@@ -11,7 +11,7 @@ class New extends Component {
       title: '',
       tags: '',
       content: '',
-      authorname: props.authorname,
+      authorname: '',
     };
 
     this.setTitle = this.setTitle.bind(this);
@@ -40,7 +40,7 @@ class New extends Component {
   }
 
   submit() {
-    this.props.createPost({ title: this.state.title, tags: this.state.tags, content: this.state.content });
+    this.props.createPost({ title: this.state.title, tags: this.state.tags, content: this.state.content, authorname: this.props.authorname });
   }
 
   cancel() {
@@ -77,7 +77,7 @@ class New extends Component {
 // connects particular parts of redux state to this components props
 const mapStateToProps = (state) => (
   {
-    post: state.posts.post,
+    authorname: state.auth.authorname,
   }
 );
 

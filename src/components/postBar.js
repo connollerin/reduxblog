@@ -8,9 +8,6 @@ export default function PostBar(props) {
       <div>
         Tags: {props.tags}
       </div>
-      <div>
-        Author: {props.authorname}
-      </div>
     </div>
   );
 }

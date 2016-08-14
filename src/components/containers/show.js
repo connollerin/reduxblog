@@ -17,7 +17,7 @@ class Show extends Component {
       tags: '',
       content: '',
       editButton: 'edit',
-      authorname: props.authorname,
+      authorname: '',
     };
 
     // bindings...
@@ -74,7 +74,7 @@ class Show extends Component {
   }
 
   updatePost() {
-    this.props.updatePost({ title: this.state.title, tags: this.state.tags, content: this.state.content, id: this.props.params.id, authorname: this.props.params.authorname });
+    this.props.updatePost({ title: this.state.title, tags: this.state.tags, content: this.state.content, id: this.props.params.id, authorname: this.state.authorname });
   }
 
   deletePost() {
@@ -118,7 +118,7 @@ class Show extends Component {
               {this.state.title}
             </div>
             <div>
-              {this.state.authorname}
+              <p>Author: {this.state.authorname}</p>
             </div>
             <div>
               {this.state.tags}

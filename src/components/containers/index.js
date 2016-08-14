@@ -9,6 +9,7 @@ class Index extends Component {
   constructor(props) {
     super(props);
     this.state = {};
+    console.log(props);
   }
 
   componentWillMount() {
@@ -16,6 +17,8 @@ class Index extends Component {
   }
 
   render() {
+    // console.log(this.props.all);
+    // if (this.props.all === null || this.props.all.length === 0) return <h1>There are no posts yet.</h1>;
     let posts = this.props.all.map((post) => {
       return (
         <PostBar title={post.title} id={post.id} tags={post.tags} key={post.id} authorname={post.authorname} /> // warning!!

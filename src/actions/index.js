@@ -23,7 +23,7 @@ export function fetchPosts() {
       // for get
     axios.get(`${ROOT_URL}/posts${API_KEY}`).then(response => {
       // do something with response.data  (some json)
-      dispatch({ type: 'FETCH_POSTS', payload: response.data });
+      dispatch({ type: 'FETCH_POSTS', payload: { all: response.data } });
     }).catch(error => {
       // hit an error do something else!
       console.log('error with fetching');
@@ -34,8 +34,7 @@ export function fetchPosts() {
 export function fetchPost(id) {
   return (dispatch) => {
     axios.get(`${ROOT_URL}/posts/${id}${API_KEY}`).then(response => {
-      console.log(response.data);
-      dispatch({ type: 'FETCH_POST', payload: response.data });
+      dispatch({ type: 'FETCH_POST', payload: { post: response.data } });
     }).catch(error => {
       console.log('Error getting post');
     });
@@ -47,6 +46,7 @@ export function createPost(post) {
     // const fields = { title: post.title, content: post.content, tags: post.tags };
     axios.post(`${ROOT_URL}/posts`, post, { headers: { authorization: localStorage.getItem('token') } }).then(response => {
       browserHistory.push('/');
+      console.log(post);
     }).catch(error => {
       console.log('Error creating posts');
     });
@@ -104,7 +104,7 @@ export function signinUser({ email, password }) {
 }
 
 
-export function signupUser({ email, password }) {
+export function signupUser({ email, password, authorname }) {
   // takes in an object with email and password (minimal user object)
   // returns a thunk method that takes dispatch as an argument (just like our create post method really)
   // does an axios.post on the /signup endpoint (only difference from above)
@@ -113,7 +113,7 @@ export function signupUser({ email, password }) {
   //  localStorage.setItem('token', response.data.token);
   // on error should dispatch(authError(`Sign Up Failed: ${error.response.data}`));
   return (dispatch) => {
-    axios.post(`${ROOT_URL}/signup/`, { email, password }).
+    axios.post(`${ROOT_URL}/signup/`, { email, password, authorname }).
     then(response => {
       dispatch({ type: ActionTypes.AUTH_USER }); // do we need to add payload.email?
       localStorage.setItem('token', response.data.token);
