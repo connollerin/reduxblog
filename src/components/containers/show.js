@@ -74,7 +74,7 @@ class Show extends Component {
   }
 
   updatePost() {
-    this.props.updatePost({ title: this.state.title, tags: this.state.tags, content: this.state.content, id: this.props.params.id, authorname: this.state.authorname });
+    this.props.updatePost({ title: this.state.title, tags: this.state.tags, content: this.state.content, id: this.props.params.id, authorname: this.props.post.authorname });
   }
 
   deletePost() {
@@ -100,6 +100,7 @@ class Show extends Component {
               Content: <textarea value={this.state.content} onChange={this.setContent} />
             </div>
           </div>
+          <p>Warning: if you did not create this post, your edits will not be applied.</p>
           <div id="buttons">
             <button className="edit" onClick={this.editPost}>
               {this.state.editButton}
