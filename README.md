@@ -1,7 +1,5 @@
-# js-starter with react react-router babel sass and eslint
+# CS52 HW5 Pt 2- Blog Authentication
 
-For this project, I have used redux's structure of store, actions and reducers to implement a blog. The main page along with the individual view of a post and the edit view of a post are implemented as connected components which can get information and keep updated from the data stored with our api. 
+For this assignemnt, we added authentication through the back-end and front-end so that users can only edit and add new posts if they are signed in. Their names, which are saved when signing up, are associated with whichever posts have been most recently created or edited by them.
 
-I think the connections work well, and I found it helpful to implement a component for each individual post listed on the main page.
-
-For extra credit, I have added some css to make it look better.
+I think saving the name was the most challenging for me navigating through all the back and front end files, but I think it works well now. If I had more time, I would make it smoother when an unauthorized error is thrown. I would want to connect that through the front end. For now, I just have a static warning on the edit part of the page.
