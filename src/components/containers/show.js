@@ -122,7 +122,7 @@ class Show extends Component {
               <p>Author: {this.state.authorname}</p>
             </div>
             <div>
-              {this.state.tags}
+              Tags: {this.state.tags}
             </div>
             <div dangerouslySetInnerHTML={this.markItUp()}>
             </div>

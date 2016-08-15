@@ -23,15 +23,15 @@ class NavBar extends Component {
     if (this.props.authenticated) {
       return (
         <div id="navbar">
-          <Link className="link" to="/">The most awesaome blog in the world</Link>
+          <Link className="link" to="/">The most awesome blog in the world</Link>
           <Link className="link" to="/posts/new">new post +</Link>
-          <button id="signout" onClick={this.signOut}>sign out</button>
+          <Link className="link" to="/" onClick={this.signOut}>sign out</Link>
         </div>
       );
     } else {
       return (
         <div id="navbar">
-          <Link className="link" to="/">The most awesaome blog in the world</Link>
+          <Link className="link" to="/">The most awesome blog in the world</Link>
           <Link className="link" to="/posts/new">new post +</Link>
           <Link className="link" to="/signin">sign in</Link>
           <Link className="link" to="/signup">sign up</Link>
