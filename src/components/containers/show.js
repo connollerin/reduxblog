@@ -100,7 +100,7 @@ class Show extends Component {
               Content: <textarea value={this.state.content} onChange={this.setContent} />
             </div>
           </div>
-          <p>Warning: if you did not create this post, your edits will not be applied.</p>
+          <p>Warning: if you are signed in, your edits will not be saved.</p>
           <div id="buttons">
             <button className="edit" onClick={this.editPost}>
               {this.state.editButton}
@@ -116,7 +116,7 @@ class Show extends Component {
         <div>
           <div id="fields">
             <div>
-              {this.state.title}
+              Title: {this.state.title}
             </div>
             <div>
               <p>Author: {this.state.authorname}</p>
